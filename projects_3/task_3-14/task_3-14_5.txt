@@ -1,0 +1,11 @@
+!/bin/bash
+
+df -h | awk '
+NR > 1 {
+gsub(/%/, "", $5)
+usage = $5
+print $1, usage "%"
+if (usage > 90) {
+print "  ВНИМАНИЕ: Файловая система " $1 " заполнена на " usage "%!"
+}
+}'

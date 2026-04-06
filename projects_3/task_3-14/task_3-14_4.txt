@@ -1,0 +1,23 @@
+!/bin/bash
+
+FILE="data.csv"
+
+if [ ! -f "$FILE" ]; then
+    cat > "$FILE" << EOF
+1,Mouse,23
+2,Keyboard,15
+3,Monitor,120
+4,USB,5
+EOF
+    echo "Файл $FILE создан."
+fi
+
+echo "=== Названия товаров ==="
+awk -F ',' '{print $2}' "$FILE"
+
+echo "=== Товары дороже 20 ==="
+awk -F ',' '$3 > 20 {print $2, $3}' "$FILE"
+
+echo "=== Общая стоимость всех товаров ==="
+total=$(awk -F ',' '{sum += $3} END {print sum}' "$FILE")
+echo "Общая стоимость: $total"

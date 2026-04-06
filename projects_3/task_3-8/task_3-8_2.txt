@@ -1,0 +1,18 @@
+nano age.sh
+chmod +x age.sh
+./age.sh
+Текущий год: 2026
+Ваш примерный возраст: 19
+
+#!/bin/bash
+
+# Присваивание
+CURRENT_YEAR=2026
+BIRTH_YEAR=2007
+
+# Вычисление (Арифметика)
+AGE=$((CURRENT_YEAR - BIRTH_YEAR))
+
+# Вывод с интерполяцией
+echo "Текущий год: $CURRENT_YEAR"
+echo "Ваш примерный возраст: $AGE"

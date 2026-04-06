@@ -1,0 +1,6 @@
+#!/bin/bash
+read -p "Введите массу (в кг): " MASS
+read -p "Введите рост (в сантиметрах): " HEIGHT
+HEIGHT2=$((HEIGHT * HEIGHT))
+BMI=$((MASS * 10000 / HEIGHT2))
+echo "Ваш индекс массы тела: $BMI "
